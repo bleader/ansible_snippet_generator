@@ -30,11 +30,11 @@ Installation:
 
 In vim:
 - Edit a .yaml file
-- type `play` and then <tab>, it will fill the start of the playbook
+- type `play` and then _\<tab\>_, it will fill the start of the playbook
 - the cursor will be placed on the next token, for playbook this is the hosts
-  variable, you can then jump between tokens with <tab> and <S-tab>
+  variable, you can then jump between tokens with _\<tab\>_ and _\<S-tab\>_
 - then you can add an action for a given module by typing the name of the module
-  followed by <tab>
+  followed by _\<tab\>_
 
 Example
 -------
