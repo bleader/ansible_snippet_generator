@@ -39,4 +39,4 @@ In vim:
 Example
 -------
 
- TODO: link to asciicast.
+Have a look at this asciiio cast if you wish: http://ascii.io/a/1524
