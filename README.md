@@ -26,7 +26,7 @@ Usage
 Installation:
 
 - put the script in ansible/hacking (so it can find module_formatter.py)
-- call passing the ansible/library folder, redirect output to a file
+- execute and redirect output to a file
 
 In vim:
 - Edit a .yaml file
