@@ -1,6 +1,6 @@
 #!/usr/bin/env python2
 
-from module_formatter import get_docstring
+from ansible.utils.module_docs import get_docstring
 import os
 import sys
 
@@ -11,18 +11,25 @@ print "	  user: ${2:root}"
 print "	  tasks:"
 print 
 
-list = os.listdir(sys.argv[1])
-os.chdir(sys.argv[1])
+libpath = os.path.abspath(os.path.join(
+    os.path.dirname(os.path.realpath(__file__)), os.pardir, 'library'
+    ))
 
-for m in list:
-    if os.path.isdir(m):
+fname_list = []
+
+for d in os.listdir(libpath):
+    for f in os.listdir(os.path.join(libpath, d)):
+        fname_list.append(os.path.join(libpath, d, f))
+
+for fname in fname_list: 
+    if os.path.isdir(fname):
         continue
 
-    doc = get_docstring(m)
+    doc, examples = get_docstring(fname)
     if doc != None:
         print "snippet %s" % (doc['module'])
         print "	- name: ${1:task_description}"
-        print "	  action: %s" % (doc['module']),
+        print "	  %s:" % (doc['module']),
         if 'options' in doc:
             count = 1
             for o in doc['options']:
